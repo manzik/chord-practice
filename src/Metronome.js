@@ -161,7 +161,12 @@ export default class Metronome extends React.Component {
       let chords = [];
       if (this.state.majorChordsChecked) chords = chords.concat(majorChords);
       if (this.state.minorChordsChecked) chords = chords.concat(minorChords);
-      this.setState({ chord: chords[Math.floor(Math.random() * chords.length)] });
+      let newChord = this.state.chord;
+      while (newChord === this.state.chord)
+      {
+        newChord = chords[Math.floor(Math.random() * chords.length)];
+      }
+      this.setState({ chord: newChord });
     }
     osc.start(this.state.nextClickTime);
     gainNode.gain.setTargetAtTime(0, this.state.nextClickTime + this.state.noteLength, 0.015);
