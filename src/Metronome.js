@@ -20,6 +20,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Animation from './Animation';
 import TempoInputs from './TempoInputs';
 
+const majorChords = ["A", "B", "C", "D", "E", "F", "G"];
+const minorChords = ["Am", "Bm", "Cm", "Dm", "Em", "Fm", "Gm"];
+
 class Note {
   constructor(time = 0, beat = 0, click = 0) {
     this.time = time;
@@ -43,10 +46,12 @@ function PlayButton(props) {
 function Settings(props) {
   return (
     <div className="settings-row">
+      <label className="cb-label"><input type="checkbox" name="major-chords-toggle" checked={props.majorChordsChecked} onChange={props.handleChordChange} />&nbsp;Major Chords</label>
+      <label className="cb-label"><input type="checkbox" name="minor-chords-toggle" checked={props.minorChordsChecked} onChange={props.handleChordChange} />&nbsp;Minor Chords</label>
       <div className="select-wrapper">
         <select 
           value={props.beatsPerBar} 
-          onChange={props.handleChange}
+          onChange={props.handleTempoChange}
           name="beat-select"
         >
           <option value="2">2/4</option>
@@ -55,13 +60,14 @@ function Settings(props) {
           <option value="5">5/4</option>
           <option value="6">6/4</option>
           <option value="7">7/4</option>
+          <option value="8">8/4</option>
         </select>
       </div>
 
       <div className="select-wrapper">
         <select 
           value={props.clicksPerBeat} 
-          onChange={props.handleChange}
+          onChange={props.handleTempoChange}
           name="click-select"
         >
           <option value="1">1 click</option>
@@ -86,7 +92,7 @@ function Settings(props) {
 export default class Metronome extends React.Component {
   constructor(props) {
     super(props);
-    
+    let chords = majorChords.concat(minorChords);
     this.state = {
       noteLength: .05,
       lookahead: 25,
@@ -108,9 +114,13 @@ export default class Metronome extends React.Component {
 
       beatsPerBar: 4,
       clicksPerBeat: 1,
+
+      majorChordsChecked: true,
+      minorChordsChecked: true
     };
     
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTempoChange = this.handleTempoChange.bind(this);
+    this.handleChordChange = this.handleChordChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleTick = this.handleTick.bind(this);
 
@@ -147,6 +157,12 @@ export default class Metronome extends React.Component {
       osc.frequency.value = 330.0;
     }
 
+    if (note.beat === 0 && note.click === 0) {
+      let chords = [];
+      if (this.state.majorChordsChecked) chords = chords.concat(majorChords);
+      if (this.state.minorChordsChecked) chords = chords.concat(minorChords);
+      this.setState({ chord: chords[Math.floor(Math.random() * chords.length)] });
+    }
     osc.start(this.state.nextClickTime);
     gainNode.gain.setTargetAtTime(0, this.state.nextClickTime + this.state.noteLength, 0.015);
     osc.stop(this.state.nextClickTime + this.state.noteLength*2);
@@ -250,7 +266,7 @@ export default class Metronome extends React.Component {
     }
   }
   
-  handleChange(e) {
+  handleTempoChange(e) {
     if (e.target.name === "beat-select") {
       this.setState({ beatsPerBar: e.target.value });
       return;
@@ -259,15 +275,24 @@ export default class Metronome extends React.Component {
       this.setState({ clicksPerBeat: e.target.value });
       return;
     }
-
     this.setState({ tempo: e.target.value });
+  }
+
+  handleChordChange(e) {
+    if (e.target.name === "major-chords-toggle") {
+      this.setState({ majorChordsChecked: e.target.checked });
+    }
+    else if (e.target.name === "minor-chords-toggle") {
+      this.setState({ minorChordsChecked: e.target.checked });
+    }
   }
 
   render() {
     return (
       <>
         <TempoInputs 
-          onChange={this.handleChange} 
+          chord={this.state.chord}
+          onChange={this.handleTempoChange} 
           onClick={this.handleClick} 
           tempo={this.state.tempo} 
           maxTempo={this.state.maxTempo} 
@@ -277,8 +302,8 @@ export default class Metronome extends React.Component {
           tempo={this.state.tempo} 
           nbt={this.state.nextBeatTime} 
           isplaying={this.state.isPlaying} 
-          queue={this.state.noteQueue} 
-          audiocontext={this.audioContext} 
+          queue={this.state.noteQueue}
+          audiocontext={this.audioContext}
           beatsPerBar={this.state.beatsPerBar} 
           theme={this.props.theme}
         />
@@ -289,7 +314,10 @@ export default class Metronome extends React.Component {
         <Settings 
           beatsPerBar={this.state.beatsPerBar} 
           clicksPerBeat={this.state.clicksPerBeat} 
-          handleChange={this.handleChange}
+          handleTempoChange={this.handleTempoChange}
+          handleChordChange={this.handleChordChange}
+          minorChordsChecked={this.state.minorChordsChecked}
+          majorChordsChecked={this.state.majorChordsChecked}
         />
       </>
     );

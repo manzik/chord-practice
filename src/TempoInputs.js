@@ -14,6 +14,13 @@ export default class TempoInputs extends React.Component {
     return (
       <>
         <div className="tempo-input-row">
+          <div style={{
+            textAlign: "center",
+            width: "100%",
+            fontSize: "5rem",
+          }}><b>{this.props.chord}</b></div>
+        </div>
+        <div className="tempo-input-row">
           <button 
             name={"decrement-tempo"} 
             onClick={this.props.onClick}  
