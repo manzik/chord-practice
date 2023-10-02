@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/chord-practice/static/css/main.121dff72.chunk.css",
-    "main.js": "/chord-practice/static/js/main.0cc883fa.chunk.js",
-    "main.js.map": "/chord-practice/static/js/main.0cc883fa.chunk.js.map",
+    "main.js": "/chord-practice/static/js/main.70b6f8e6.chunk.js",
+    "main.js.map": "/chord-practice/static/js/main.70b6f8e6.chunk.js.map",
     "runtime-main.js": "/chord-practice/static/js/runtime-main.bf8315c4.js",
     "runtime-main.js.map": "/chord-practice/static/js/runtime-main.bf8315c4.js.map",
     "static/css/2.679831fc.chunk.css": "/chord-practice/static/css/2.679831fc.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.679831fc.chunk.css",
     "static/js/2.aa90ec13.chunk.js",
     "static/css/main.121dff72.chunk.css",
-    "static/js/main.0cc883fa.chunk.js"
+    "static/js/main.70b6f8e6.chunk.js"
   ]
 }
