@@ -1,6 +1,6 @@
 {
-  "homepage": "https://aviolin.github.io/metronome",
-  "name": "metronome",
+  "homepage": "https://github.manzik.com/chord-practice",
+  "name": "chord-practice",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
