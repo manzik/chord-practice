@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/metronome/static/css/main.121dff72.chunk.css",
-    "main.js": "/metronome/static/js/main.9585f0f2.chunk.js",
-    "main.js.map": "/metronome/static/js/main.9585f0f2.chunk.js.map",
-    "runtime-main.js": "/metronome/static/js/runtime-main.8c4fe732.js",
-    "runtime-main.js.map": "/metronome/static/js/runtime-main.8c4fe732.js.map",
-    "static/css/2.679831fc.chunk.css": "/metronome/static/css/2.679831fc.chunk.css",
-    "static/js/2.4f8c12bb.chunk.js": "/metronome/static/js/2.4f8c12bb.chunk.js",
-    "static/js/2.4f8c12bb.chunk.js.map": "/metronome/static/js/2.4f8c12bb.chunk.js.map",
-    "3b3b5c54bb0ab815977d.worker.js": "/metronome/3b3b5c54bb0ab815977d.worker.js",
-    "3b3b5c54bb0ab815977d.worker.js.map": "/metronome/3b3b5c54bb0ab815977d.worker.js.map",
-    "index.html": "/metronome/index.html",
-    "static/css/2.679831fc.chunk.css.map": "/metronome/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.121dff72.chunk.css.map": "/metronome/static/css/main.121dff72.chunk.css.map",
-    "static/js/2.4f8c12bb.chunk.js.LICENSE.txt": "/metronome/static/js/2.4f8c12bb.chunk.js.LICENSE.txt"
+    "main.css": "/chord-practice/static/css/main.121dff72.chunk.css",
+    "main.js": "/chord-practice/static/js/main.0cc883fa.chunk.js",
+    "main.js.map": "/chord-practice/static/js/main.0cc883fa.chunk.js.map",
+    "runtime-main.js": "/chord-practice/static/js/runtime-main.bf8315c4.js",
+    "runtime-main.js.map": "/chord-practice/static/js/runtime-main.bf8315c4.js.map",
+    "static/css/2.679831fc.chunk.css": "/chord-practice/static/css/2.679831fc.chunk.css",
+    "static/js/2.aa90ec13.chunk.js": "/chord-practice/static/js/2.aa90ec13.chunk.js",
+    "static/js/2.aa90ec13.chunk.js.map": "/chord-practice/static/js/2.aa90ec13.chunk.js.map",
+    "118dfcd48df09c891a63.worker.js": "/chord-practice/118dfcd48df09c891a63.worker.js",
+    "118dfcd48df09c891a63.worker.js.map": "/chord-practice/118dfcd48df09c891a63.worker.js.map",
+    "index.html": "/chord-practice/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/chord-practice/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.121dff72.chunk.css.map": "/chord-practice/static/css/main.121dff72.chunk.css.map",
+    "static/js/2.aa90ec13.chunk.js.LICENSE.txt": "/chord-practice/static/js/2.aa90ec13.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8c4fe732.js",
+    "static/js/runtime-main.bf8315c4.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.4f8c12bb.chunk.js",
+    "static/js/2.aa90ec13.chunk.js",
     "static/css/main.121dff72.chunk.css",
-    "static/js/main.9585f0f2.chunk.js"
+    "static/js/main.0cc883fa.chunk.js"
   ]
 }
